@@ -7,7 +7,16 @@ import servers from './servers';
 import sidebar from './sidebar';
 import webview from './webview';
 
+const replaceStrings = () => {
+	document.querySelector('.add-server .tooltip').innerHTML = i18n.__('Add new server');
+	document.querySelector('#login-card h2').innerHTML = i18n.__('Enter_your_server_URL');
+	document.querySelector('#invalidUrl').innerHTML = i18n.__('No_valid_server_found');
+	document.querySelector('.only-offline').innerHTML = i18n.__('Check_connection');
+};
+
 export default () => {
+	replaceStrings();
+
 	const defaultInstance = 'https://open.rocket.chat';
 
 	// connection check
