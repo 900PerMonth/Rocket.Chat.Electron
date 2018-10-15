@@ -7,7 +7,7 @@ import servers from './servers';
 import sidebar from './sidebar';
 import webview from './webview';
 
-export const start = function() {
+export default () => {
 	const defaultInstance = 'https://open.rocket.chat';
 
 	// connection check

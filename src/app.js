@@ -1,6 +1,6 @@
-import './branding/branding.js';
-import { start } from './scripts/start';
 import { remote } from 'electron';
+import './branding/branding.js';
+
 const { app } = remote;
 
 Bugsnag.metaData = {
@@ -14,5 +14,6 @@ Bugsnag.metaData = {
 
 Bugsnag.appVersion = app.getVersion();
 
-window.$ = window.jQuery = require('./vendor/jquery-3.1.1');
-start();
+window.$ = window.jQuery = require('./public/vendor/jquery-3.1.1');
+
+export { default as main } from './scripts/start';
