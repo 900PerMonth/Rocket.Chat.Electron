@@ -5,6 +5,7 @@ import jetpack from 'fs-jetpack';
 import idle from '@paulcbetts/system-idle-time';
 import { app, ipcMain, Menu } from 'electron';
 
+import './background/aboutDialog';
 import autoUpdate from './background/autoUpdate';
 import certificate from './background/certificate';
 import { addServer, createMainWindow, getMainWindow } from './background/mainWindow';
@@ -15,7 +16,6 @@ import tray from './background/tray';
 import i18n from './i18n/index.js';
 import env from './env';
 
-export { default as showAboutDialog } from './background/aboutDialog';
 export { default as remoteServers } from './background/servers';
 export { certificate, menus, tray };
 

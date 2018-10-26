@@ -1,8 +1,8 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import { getMainWindow } from './mainWindow';
 import i18n from '../i18n/index.js';
 
-export default async() => {
+ipcMain.on('show-about-window', async() => {
 	const mainWindow = await getMainWindow();
 	const win = new BrowserWindow({
 		title: i18n.__('About %s', app.getName()),
@@ -19,4 +19,4 @@ export default async() => {
 	win.setMenuBarVisibility(false);
 	win.once('ready-to-show', () => win.show());
 	win.loadURL(`file://${ __dirname }/public/about.html`);
-};
+});

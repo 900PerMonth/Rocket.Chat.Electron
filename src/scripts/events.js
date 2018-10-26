@@ -4,11 +4,11 @@ import sidebar from './sidebar';
 import webview from './webview';
 
 const { app, getCurrentWindow, shell } = remote;
-const { certificate, menus, showAboutDialog, tray } = remote.require('./background');
+const { certificate, menus, tray } = remote.require('./background');
 
 export default () => {
 	menus.on('quit', () => app.quit());
-	menus.on('about', () => showAboutDialog());
+	menus.on('about', () => ipcRenderer.send('show-about-dialog'));
 	menus.on('open-url', (url) => shell.openExternal(url));
 
 
